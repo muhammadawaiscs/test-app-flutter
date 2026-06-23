@@ -51,19 +51,12 @@ class WorkoutCard extends StatelessWidget {
                             children: [
                               Text(
                                 '${workout.dateRange} - ${workout.duration} - ${workout.totalDuration}',
-                                style: AppTextStyles.bodySmall.copyWith(
-                                  color: AppColors.primaryText,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                                style: AppTextStyles.workoutMeta,
                               ),
                               const SizedBox(height: 6),
                               Text(
                                 workout.title,
-                                style: AppTextStyles.titleMedium.copyWith(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                                style: AppTextStyles.workoutTitle,
                               ),
                             ],
                           ),
@@ -103,10 +96,7 @@ class WorkoutsSection extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(
-              'Workouts',
-              style: AppTextStyles.titleLarge.copyWith(fontSize: 20),
-            ),
+            Text('Workouts', style: AppTextStyles.sectionTitle),
             const Spacer(),
             const Icon(
               Icons.wb_sunny_outlined,
@@ -118,7 +108,6 @@ class WorkoutsSection extends StatelessWidget {
               '9°',
               style: AppTextStyles.bodyMedium.copyWith(
                 color: AppColors.secondaryText,
-                fontSize: 14,
               ),
             ),
           ],

@@ -25,7 +25,7 @@ class InsightsSection extends StatelessWidget {
       children: [
         Text(
           'My Insights',
-          style: AppTextStyles.titleLarge.copyWith(fontSize: 20),
+          style: AppTextStyles.sectionTitle,
         ),
         const SizedBox(height: AppSpacing.lg),
         Row(
@@ -63,34 +63,24 @@ class _CaloriesCard extends StatelessWidget {
         children: [
           RichText(
             text: TextSpan(
-              style: AppTextStyles.metricValue.copyWith(fontSize: 22),
+              style: AppTextStyles.insightMetric,
               children: [
                 TextSpan(text: '${data.calories} '),
-                TextSpan(
-                  text: 'Calories',
-                  style: AppTextStyles.bodyMedium.copyWith(
-                    color: AppColors.primaryText,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+                TextSpan(text: 'Calories', style: AppTextStyles.insightUnit),
               ],
             ),
           ),
           const SizedBox(height: AppSpacing.xs),
           Text(
             '${data.caloriesRemaining} Remaining',
-            style: AppTextStyles.bodySmall.copyWith(fontSize: 12),
+            style: AppTextStyles.bodySmall,
           ),
           const Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('0', style: AppTextStyles.labelSmall.copyWith(fontSize: 10)),
-              Text(
-                '${data.calorieGoal}',
-                style: AppTextStyles.labelSmall.copyWith(fontSize: 10),
-              ),
+              Text('0', style: AppTextStyles.progressLabel),
+              Text('${data.calorieGoal}', style: AppTextStyles.progressLabel),
             ],
           ),
           const SizedBox(height: 4),
@@ -114,30 +104,17 @@ class _WeightCard extends StatelessWidget {
         children: [
           RichText(
             text: TextSpan(
-              style: AppTextStyles.metricValue.copyWith(fontSize: 22),
+              style: AppTextStyles.insightMetric,
               children: [
                 TextSpan(text: '${data.weightKg.toInt()} '),
-                TextSpan(
-                  text: 'kg',
-                  style: AppTextStyles.bodyMedium.copyWith(
-                    color: AppColors.primaryText,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+                TextSpan(text: 'kg', style: AppTextStyles.insightUnit),
               ],
             ),
           ),
           const SizedBox(height: AppSpacing.sm),
           WeightTrendBadge(changeKg: data.weightChangeKg),
           const Spacer(),
-          Text(
-            'Weight',
-            style: AppTextStyles.bodySmall.copyWith(
-              color: AppColors.primaryText,
-              fontSize: 13,
-            ),
-          ),
+          Text('Weight', style: AppTextStyles.cardLabel),
         ],
       ),
     );
@@ -252,25 +229,16 @@ class _HydrationCard extends StatelessWidget {
                       children: [
                         Text(
                           '$percent%',
-                          style: AppTextStyles.metricValue.copyWith(
-                            color: AppColors.hydrationAccent,
-                            fontSize: 28,
-                          ),
+                          style: AppTextStyles.hydrationMetric,
                         ),
                         const SizedBox(height: AppSpacing.xs),
-                        Text(
-                          'Hydration',
-                          style: AppTextStyles.bodyMedium.copyWith(fontSize: 14),
-                        ),
+                        Text('Hydration', style: AppTextStyles.bodyMedium),
                         const SizedBox(height: AppSpacing.xs),
                         GestureDetector(
                           onTap: onLog,
                           child: Text(
                             'Log Now',
-                            style: AppTextStyles.bodySmall.copyWith(
-                              color: AppColors.secondaryText,
-                              fontSize: 12,
-                            ),
+                            style: AppTextStyles.bodySmall,
                           ),
                         ),
                       ],
@@ -300,7 +268,6 @@ class _HydrationCard extends StatelessWidget {
                 '$logMl ml added to water log',
                 style: AppTextStyles.bodySmall.copyWith(
                   color: AppColors.primaryText,
-                  fontSize: 12,
                   height: 1.2,
                 ),
                 textAlign: TextAlign.center,
@@ -384,11 +351,7 @@ class _HydrationScale extends StatelessWidget {
                 top: bottomCenterY - 5,
                 child: Text(
                   '${currentMl}ml',
-                  style: AppTextStyles.labelSmall.copyWith(
-                    color: AppColors.primaryText,
-                    fontSize: 10,
-                    height: 1,
-                  ),
+                  style: AppTextStyles.scaleLabel,
                 ),
               ),
             ],
@@ -398,12 +361,7 @@ class _HydrationScale extends StatelessWidget {
     );
   }
 
-  TextStyle get _scaleLabelStyle => AppTextStyles.labelSmall.copyWith(
-        fontSize: 10,
-        color: AppColors.primaryText,
-        fontWeight: FontWeight.w500,
-        height: 1,
-      );
+  TextStyle get _scaleLabelStyle => AppTextStyles.scaleLabel;
 }
 
 class _HydrationDash extends StatelessWidget {

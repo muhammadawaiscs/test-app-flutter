@@ -18,7 +18,14 @@ class MainShell extends StatefulWidget {
 
 class _MainShellState extends State<MainShell> {
   final _nutritionNavigatorKey = GlobalKey<NavigatorState>();
+  final Set<int> _builtTabs = {0};
   bool _calendarOpen = false;
+
+  void _ensureTabBuilt(int index) {
+    if (_builtTabs.add(index)) {
+      setState(() {});
+    }
+  }
 
   void _openCalendarOverlay() {
     setState(() => _calendarOpen = true);
@@ -28,8 +35,21 @@ class _MainShellState extends State<MainShell> {
     setState(() => _calendarOpen = false);
   }
 
+  void _onTabTap(int index) {
+    _ensureTabBuilt(index);
+    context.read<AppState>().setTab(index);
+  }
+
   void _switchToPlanTab() {
+    _ensureTabBuilt(1);
     context.read<AppState>().setTab(1);
+  }
+
+  Widget _lazyTab(int index, Widget child) {
+    if (!_builtTabs.contains(index)) {
+      return const SizedBox.shrink();
+    }
+    return child;
   }
 
   @override
@@ -43,14 +63,17 @@ class _MainShellState extends State<MainShell> {
           IndexedStack(
             index: currentTab,
             children: [
-              _NutritionTab(
-                navigatorKey: _nutritionNavigatorKey,
-                onWorkoutTap: _switchToPlanTab,
-                onWeekTap: _openCalendarOverlay,
+              _lazyTab(
+                0,
+                _NutritionTab(
+                  navigatorKey: _nutritionNavigatorKey,
+                  onWorkoutTap: _switchToPlanTab,
+                  onWeekTap: _openCalendarOverlay,
+                ),
               ),
-              const TrainingCalendarScreen(isTabRoot: true),
-              const MoodScreen(),
-              const ProfileScreen(),
+              _lazyTab(1, const TrainingCalendarScreen(isTabRoot: true)),
+              _lazyTab(2, const MoodScreen()),
+              _lazyTab(3, const ProfileScreen()),
             ],
           ),
           if (_calendarOpen)
@@ -59,7 +82,7 @@ class _MainShellState extends State<MainShell> {
       ),
       bottomNavigationBar: AppBottomNavBar(
         currentIndex: currentTab,
-        onTap: context.read<AppState>().setTab,
+        onTap: _onTabTap,
       ),
     );
   }

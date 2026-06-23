@@ -20,11 +20,7 @@ class WeightTrendBadge extends StatelessWidget {
         const SizedBox(width: 6),
         Text(
           '+${changeKg}kg',
-          style: AppTextStyles.bodySmall.copyWith(
-            fontSize: 12,
-            color: AppColors.accentGreen,
-            fontWeight: FontWeight.w600,
-          ),
+          style: AppTextStyles.weightTrend,
         ),
       ],
     );

@@ -61,7 +61,7 @@ class TodayLabel extends StatelessWidget {
     final formatted = DateFormat('d MMM yyyy').format(selectedDate);
     return Text(
       'Today, $formatted',
-      style: AppTextStyles.bodyLarge.copyWith(fontWeight: FontWeight.w500),
+      style: AppTextStyles.bodyLarge,
     );
   }
 }
@@ -150,10 +150,8 @@ class _DateStripItem extends StatelessWidget {
         children: [
           Text(
             day.dayLabel,
-            style: AppTextStyles.labelSmall.copyWith(
+            style: AppTextStyles.dateDayLabel.copyWith(
               color: day.isSelected ? AppColors.accentGreen : AppColors.primaryText,
-              fontWeight: FontWeight.w600,
-              fontSize: 11,
             ),
           ),
           const SizedBox(height: AppSpacing.sm),
@@ -170,11 +168,7 @@ class _DateStripItem extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               '${day.date.day}',
-              style: AppTextStyles.bodyMedium.copyWith(
-                fontWeight: FontWeight.w600,
-                fontSize: 14,
-                color: AppColors.primaryText,
-              ),
+              style: AppTextStyles.dateDayNumber,
             ),
           ),
           const SizedBox(height: AppSpacing.sm),

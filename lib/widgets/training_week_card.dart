@@ -17,12 +17,7 @@ class TrainingWeekHeader extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(
-              week.label,
-              style: AppTextStyles.titleMedium.copyWith(
-                fontWeight: FontWeight.w700,
-              ),
-            ),
+            Text(week.label, style: AppTextStyles.weekTitle),
             const Spacer(),
             Text(
               'Total: ${week.totalMinutes}min',
@@ -186,20 +181,13 @@ class _TrainingWorkoutCard extends StatelessWidget {
                         Expanded(
                           child: Text(
                             session.title,
-                            style: AppTextStyles.titleMedium.copyWith(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              height: 1.2,
-                            ),
+                            style: AppTextStyles.trainingSessionTitle,
                           ),
                         ),
                         const SizedBox(width: AppSpacing.sm),
                         Text(
                           rightText,
-                          style: AppTextStyles.bodySmall.copyWith(
-                            color: AppColors.primaryText,
-                            fontSize: 13,
-                          ),
+                          style: AppTextStyles.trainingSessionMeta,
                         ),
                       ],
                     ),
@@ -303,13 +291,7 @@ class _CategoryBadge extends StatelessWidget {
             const SizedBox(width: 6),
             Text(
               label,
-              style: AppTextStyles.labelSmall.copyWith(
-                color: foreground,
-                fontWeight: FontWeight.w500,
-                fontSize: 11,
-                height: 1,
-                letterSpacing: 0,
-              ),
+              style: AppTextStyles.categoryBadge.copyWith(color: foreground),
             ),
           ],
         ),

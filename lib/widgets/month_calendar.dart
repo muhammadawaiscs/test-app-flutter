@@ -84,11 +84,7 @@ class MonthCalendar extends StatelessWidget {
                     child: Center(
                       child: Text(
                         day,
-                        style: AppTextStyles.labelSmall.copyWith(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.secondaryText,
-                        ),
+                        style: AppTextStyles.calendarWeekdayLabel,
                       ),
                     ),
                   ),

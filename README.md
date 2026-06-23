@@ -11,8 +11,9 @@ Flutter interview test task — a dark-themed fitness & wellness app with Nutrit
 | `flutter` | Core Flutter SDK for building the UI. |
 | `cupertino_icons` | iOS-style icons where needed alongside Material icons. |
 | `provider` | Lightweight state management for tab selection, selected date, mood value, and hydration progress across screens. |
-| `google_fonts` | Loads custom typography (Inter) to match the design system in `app_text_styles.dart`. |
 | `intl` | Date formatting and calendar labels in the date header and month calendar. |
+
+Bundled **Inter** font files (`fonts/`) match the Figma typography — no runtime network font loading.
 
 ### Dev dependencies
 
@@ -36,7 +37,6 @@ lib/
 
 assets/
 ├── app_icon/                 # Launcher icon source images
-├── badges/                   # Workout category badge images
 ├── icons/                    # Bottom navigation icons
 └── moods/                    # Mood face images for the mood selector
 

@@ -43,10 +43,7 @@ class MoodScreen extends StatelessWidget {
                           const SizedBox(height: AppSpacing.xs),
                           Text(
                             'How are you feeling at the Moment?',
-                            style: AppTextStyles.bodyLarge.copyWith(
-                              color: AppColors.secondaryText,
-                              fontWeight: FontWeight.w400,
-                            ),
+                            style: AppTextStyles.moodQuestion,
                           ),
                           const Spacer(),
                           Center(

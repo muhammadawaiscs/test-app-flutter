@@ -46,10 +46,7 @@ class TrainingCalendarScreen extends StatelessWidget {
                     Expanded(
                       child: Text(
                         'Training Calendar',
-                        style: AppTextStyles.titleLarge.copyWith(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w700,
-                        ),
+                        style: AppTextStyles.titleLarge,
                         textAlign:
                             isTabRoot ? TextAlign.left : TextAlign.center,
                       ),
@@ -75,10 +72,7 @@ class TrainingCalendarScreen extends StatelessWidget {
                       ),
                       child: Text(
                         'Save',
-                        style: AppTextStyles.bodyLarge.copyWith(
-                          color: AppColors.primaryText,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: AppTextStyles.bodyLarge,
                       ),
                     ),
                   ],
