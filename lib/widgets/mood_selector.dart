@@ -13,36 +13,47 @@ class MoodSelector extends StatefulWidget {
     required this.value,
     required this.mood,
     required this.onChanged,
+    this.size = 280,
   });
 
   final double value;
   final MoodOption mood;
   final ValueChanged<double> onChanged;
+  final double size;
 
   @override
   State<MoodSelector> createState() => _MoodSelectorState();
 }
 
 class _MoodSelectorState extends State<MoodSelector> {
-  static const double _size = 280;
-  static const double _strokeWidth = 26;
-  static const double _faceSize = 92;
+  static const double _defaultSize = 280;
+  static const double _defaultStrokeWidth = 26;
+  static const double _defaultFaceSize = 92;
+  static const double _defaultLabelSpace = 48;
+
+  double get _scale => widget.size / _defaultSize;
 
   @override
   Widget build(BuildContext context) {
+    final size = widget.size;
+    final strokeWidth = _defaultStrokeWidth * _scale;
+    final faceSize = _defaultFaceSize * _scale;
+    final labelSpace = _defaultLabelSpace * _scale;
+    final faceRadius = 22 * _scale;
+
     return SizedBox(
-      width: _size,
-      height: _size + 48,
+      width: size,
+      height: size + labelSpace,
       child: Stack(
         alignment: Alignment.center,
         children: [
           CustomPaint(
-            size: const Size(_size, _size),
-            painter: _MoodRingPainter(strokeWidth: _strokeWidth),
+            size: Size(size, size),
+            painter: _MoodRingPainter(strokeWidth: strokeWidth),
           ),
           _MoodHandle(
-            size: _size,
-            strokeWidth: _strokeWidth,
+            size: size,
+            strokeWidth: strokeWidth,
             value: widget.value,
             onChanged: widget.onChanged,
           ),
@@ -50,16 +61,21 @@ class _MoodSelectorState extends State<MoodSelector> {
             mainAxisSize: MainAxisSize.min,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(22),
+                borderRadius: BorderRadius.circular(faceRadius),
                 child: Image.asset(
                   widget.mood.faceAsset,
-                  width: _faceSize,
-                  height: _faceSize,
+                  width: faceSize,
+                  height: faceSize,
                   fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(height: AppSpacing.lg),
-              Text(widget.mood.label, style: AppTextStyles.titleLarge),
+              SizedBox(height: AppSpacing.lg * _scale),
+              Text(
+                widget.mood.label,
+                style: AppTextStyles.titleLarge.copyWith(
+                  fontSize: 22 * _scale,
+                ),
+              ),
             ],
           ),
         ],
