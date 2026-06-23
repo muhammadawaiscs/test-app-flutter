@@ -13,7 +13,6 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-
     expect(find.text('Workouts'), findsOneWidget);
     expect(find.text('My Insights'), findsOneWidget);
     expect(find.textContaining('Today,'), findsOneWidget);
