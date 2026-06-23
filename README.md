@@ -52,6 +52,10 @@ test/
 - **`lib/utils/`** — Design tokens: `AppColors`, `AppTextStyles`, `AppSpacing`, and `AppTheme`.
 - **`lib/widgets/`** — Shared components such as `AppBottomNavBar`, `WorkoutCard`, `InsightsSection`, `MoodSelector`, `MonthCalendar`, and `DateHeader`.
 
+## 4. App Video
+
+[Watch App Demo Video](https://github.com/muhammadawaiscs/test-app-flutter/raw/main/docs/test-app-flow.mov)
+
 ## Getting Started
 
 ```bash
