@@ -72,6 +72,10 @@ test/
 
 [Watch App Demo Video](https://github.com/muhammadawaiscs/test-app-flutter/raw/main/docs/test-app-flow.mov)
 
+## 5. App APK
+
+[Download APK](https://github.com/muhammadawaiscs/test-app-flutter/releases/download/v1.0/app-release.apk)
+
 ## Getting Started
 
 ```bash
