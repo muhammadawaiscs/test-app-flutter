@@ -18,5 +18,4 @@ void main() {
     expect(find.textContaining('Today,'), findsOneWidget);
     expect(find.bySemanticsLabel('Nutrition'), findsOneWidget);
   });
-
 }
