@@ -13,7 +13,7 @@ Flutter interview test task — a dark-themed fitness & wellness app with Nutrit
 | `provider` | Lightweight state management for tab selection, selected date, mood value, and hydration progress across screens. |
 | `intl` | Date formatting and calendar labels in the date header and month calendar. |
 
-Bundled **Inter** font files (`fonts/`) match the Figma typography — no runtime network font loading.
+Bundled **Inter** font files (`fonts/`) for consistent typography and faster app startup.
 
 ### Dev dependencies
 
@@ -51,6 +51,22 @@ test/
 - **`lib/services/`** — `AppState` (ChangeNotifier for shared UI state) and `MockDataService` (static mock data for workouts, insights, moods, and training plan).
 - **`lib/utils/`** — Design tokens: `AppColors`, `AppTextStyles`, `AppSpacing`, and `AppTheme`.
 - **`lib/widgets/`** — Shared components such as `AppBottomNavBar`, `WorkoutCard`, `InsightsSection`, `MoodSelector`, `MonthCalendar`, and `DateHeader`.
+
+## 3. App Screenshots
+
+| Nutrition | Calendar |
+|:---:|:---:|
+| ![Nutrition](screenshots/nutrition.png) | ![Calendar](screenshots/calendar.png) |
+
+| Plan | Mood |
+|:---:|:---:|
+| ![Plan](screenshots/plan.png) | ![Mood](screenshots/mood.png) |
+
+| Profile |
+|:---:|
+| ![Profile](screenshots/profile.png) |
+
+[View all screenshots](https://github.com/muhammadawaiscs/test-app-flutter/tree/main/screenshots)
 
 ## 4. App Video
 
