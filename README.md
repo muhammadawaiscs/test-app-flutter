@@ -74,7 +74,7 @@ test/
 
 ## 5. App APK
 
-[Download APK](https://github.com/muhammadawaiscs/test-app-flutter/releases/download/v1.0.1/app-release.apk)
+[Download APK](https://github.com/muhammadawaiscs/test-app-flutter/releases/download/v1.0.0/app-release.apk)
 
 ## Getting Started
 
